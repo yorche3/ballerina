@@ -199,24 +199,16 @@ numbers/                          # Paquete Ballerina
 
 ---
 
-## 🔍 Comparativa con Ada
+### 🌐 Otras implementaciones / Other implementations
 
-| Aspecto | Ada | Ballerina |
-|---------|-----|-----------|
-| Framework de pruebas | AUnit (externo) | `ballerina/test` (integrado) |
-| Total de tests | 15 (1 por función) | 10 (múltiples aserciones por test) |
-| Organización | 3 suites separadas | 2 archivos de test |
-| Tail Call Optimization | Sí (el compilador optimiza) | No (enfoque `Acc` es educativo) |
-| Tipado | Fuerte, estático | Fuerte, estático con inferencia |
-| Dependencias | AUnit (librería externa) | Ninguna (viene con Ballerina) |
-| Compilación | `alr -C tests run` | `bal test` |
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 
 ## 📝 Notas / Notes
 
-- **ES:** Ballerina no tiene TCO (Tail Call Optimization), por lo que las funciones con acumulador (`...Acc`) son equivalentes a las recursivas directas en consumo de pila. Se incluyen por coherencia educativa con las implementaciones en Ada y Assembly.
-- **EN:** Ballerina lacks TCO (Tail Call Optimization), so accumulator-based functions (`...Acc`) are equivalent to direct recursion in stack usage. They are included for educational consistency with the Ada and Assembly implementations.
+- **ES:** Ballerina no tiene TCO (Tail Call Optimization), por lo que las funciones con acumulador (`...Acc`) son equivalentes a las recursivas directas en consumo de pila. Se incluyen por coherencia educativa con las implementaciones en otros lenguajes del repositorio.
+- **EN:** Ballerina lacks TCO (Tail Call Optimization), so accumulator-based functions (`...Acc`) are equivalent to direct recursion in stack usage. They are included for educational consistency with implementations in other languages in the repository.
 - **ES:** Los parámetros de función en Ballerina son inmutables por defecto. La función `greatestCommonDivisorIte` usa variables locales (`x`, `y`) en lugar de reasignar los parámetros `a`, `b`.
 - **EN:** Function parameters in Ballerina are immutable by default. The `greatestCommonDivisorIte` function uses local variables (`x`, `y`) instead of reassigning parameters `a`, `b`.
 

@@ -50,7 +50,7 @@ public function main() {
 | Elemento | Propósito |
 |----------|-----------|
 | `import ballerina/io;` | Importa el módulo estándar de E/S |
-| `public function main()` | Punto de entrada del programa (como `main` en C, `_start` en Assembly) |
+| `public function main()` | Punto de entrada del programa |
 | `io:println(...)` | Imprime una línea con salto de línea al final |
 
 ---
@@ -103,16 +103,9 @@ helloworld/
 
 ---
 
-## 🔍 Comparativa con otros lenguajes
+### 🌐 Otras implementaciones / Other implementations
 
-| Aspecto | Ada | Assembly | Ballerina |
-|---------|-----|----------|-----------|
-| Archivo de proyecto | `hello_world.gpr` + `alire.toml` | `Makefile` (Linux) + `build.ps1` (Windows) | Ninguno (opcional `Ballerina.toml`) |
-| Punto de entrada | `procedure Hello_World is` | `_start` | `public function main()` |
-| Compilación | `gprbuild -P hello_world.gpr` | `nasm -f elf64` + `ld` | `bal run` (compila y ejecuta) |
-| E/S | `Put_Line` (librería Ada) | `syscall` (kernel) | `io:println` (librería Ballerina) |
-| Binario | ~200 KB (+ librerías) | ~1 KB (estático) | JAR ~10 MB (requiere JVM) |
-| Dependencias externas | Alire, GNAT, gprbuild | NASM, ld | Ballerina (incluye JVM) |
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 
@@ -120,8 +113,8 @@ helloworld/
 
 - **ES:** Ballerina ejecuta sobre la JVM (Java Virtual Machine). El comando `bal run` compila el código fuente a bytecode Java y lo ejecuta en un solo paso.
 - **EN:** Ballerina runs on the JVM (Java Virtual Machine). The `bal run` command compiles the source code to Java bytecode and executes it in a single step.
-- **ES:** A diferencia de Ada (que requiere `gprbuild` y `alire.toml`) o Assembly (que requiere `nasm` y `ld`), Ballerina puede ejecutar un archivo `.bal` suelto sin configuración adicional.
-- **EN:** Unlike Ada (which requires `gprbuild` and `alire.toml`) or Assembly (which requires `nasm` and `ld`), Ballerina can run a standalone `.bal` file without additional configuration.
+- **ES:** Ballerina puede ejecutar un archivo `.bal` suelto sin configuración adicional. No necesita archivos de proyecto ni manifiestos.
+- **EN:** Ballerina can run a standalone `.bal` file without additional configuration. No project files or manifests are needed.
 
 ---
 

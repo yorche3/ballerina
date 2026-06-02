@@ -132,8 +132,8 @@ hellouser/
 
 ## 📝 Notas / Notes
 
-- **ES:** `io:readln()` devuelve un `string` que incluye todo lo que el usuario escribió hasta presionar Enter, **sin** el salto de línea final (a diferencia de `sys_read` en Assembly, que sí lo incluye).
-- **EN:** `io:readln()` returns a `string` that includes everything the user typed up to pressing Enter, **without** the trailing newline (unlike `sys_read` in Assembly, which does include it).
+- **ES:** `io:readln()` devuelve un `string` que incluye todo lo que el usuario escribió hasta presionar Enter, **sin** el salto de línea final.
+- **EN:** `io:readln()` returns a `string` that includes everything the user typed up to pressing Enter, **without** the trailing newline.
 - **ES:** La variable `name` se declara con tipo explícito `string`. Ballerina tiene inferencia de tipos, pero aquí se usa declaración explícita por claridad educativa.
 - **EN:** The `name` variable is declared with explicit type `string`. Ballerina has type inference, but explicit declaration is used here for educational clarity.
 

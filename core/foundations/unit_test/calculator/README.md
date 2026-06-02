@@ -25,14 +25,14 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 
 ## 🏗️ Enfoque / Approach
 
-**ES:** A diferencia de Ada (que usa AUnit con suites, test cases y test runner explícitos), Ballerina incluye un **framework de pruebas integrado** en su herramienta `bal`:
+**ES:** Ballerina incluye un **framework de pruebas integrado** en su herramienta `bal`:
 
 1. Las funciones de prueba se marcan con la anotación `@test:Config {}`.
 2. El comando `bal test` descubre automáticamente todas las funciones anotadas en el directorio `tests/`.
 3. Las aserciones usan `test:assertEquals(actual, esperado, mensaje)`.
 4. Soporta hooks de ciclo de vida: `@test:BeforeSuite`, `@test:AfterSuite`.
 
-**EN:** Unlike Ada (which uses AUnit with suites, test cases and explicit test runners), Ballerina includes a **built-in test framework** in its `bal` tool:
+**EN:** Ballerina includes a **built-in test framework** in its `bal` tool:
 
 1. Test functions are marked with the `@test:Config {}` annotation.
 2. The `bal test` command automatically discovers all annotated functions in the `tests/` directory.
@@ -202,18 +202,9 @@ calculator/                       # Paquete Ballerina
 
 ---
 
-## 🔍 Comparativa con Ada
+### 🌐 Otras implementaciones / Other implementations
 
-| Aspecto | Ada | Ballerina |
-|---------|-----|-----------|
-| Framework de pruebas | AUnit (externo) | `ballerina/test` (integrado) |
-| Anotaciones | No (registro manual en suite) | `@test:Config`, `@test:BeforeSuite` |
-| Descubrimiento de tests | Manual (registrar en `*_Suite.adb`) | Automático (`bal test` escanea `tests/`) |
-| Archivos necesarios | 7 archivos de prueba + suite + runner | 1 archivo (`lib_test.bal`) |
-| Punto de entrada | `tests.adb` con `AUnit.Run.Test_Runner` | Ninguno (`bal test` lo gestiona) |
-| Aserciones | `Assert.Assert(Condition, Message)` | `test:assertEquals(actual, expected, msg)` |
-| Dependencias | AUnit (librería externa) | Ninguna (viene con Ballerina) |
-| Compilación | `alr -C tests run` | `bal test` |
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 

@@ -77,18 +77,9 @@ cd numbers && bal test
 
 ---
 
-## 🔍 Comparativa con Ada Foundations
+### 🌐 Otras implementaciones / Other implementations
 
-| Aspecto | Ada | Ballerina |
-|---------|-----|-----------|
-| Gestor de proyectos | Alire (`alr build`) | `bal` (integrado) |
-| Framework de pruebas | AUnit (externo) | `ballerina/test` (integrado) |
-| Archivos de proyecto | `*.gpr` + `alire.toml` | Opcional `Ballerina.toml` |
-| Tipado | Fuerte, estático | Fuerte, estático con inferencia |
-| Parámetros | Mutables por defecto | Inmutables por defecto (`final`) |
-| TCO | Sí | No |
-| Plataforma | Nativa (GNAT) | JVM (requiere Java) |
-| Dependencias | AUnit, GNAT | Ballerina runtime (incluye JVM) |
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 
