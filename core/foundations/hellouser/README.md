@@ -6,16 +6,23 @@ Lee un nombre desde la entrada estándar y saluda al usuario.
 
 ---
 
-## 📂 Archivos / Files
+## 📂 Archivos y estructura / Files & Structure
 
 | Archivo | Propósito |
 |---------|-----------|
 | [`hello_user.bal`](hello_user.bal) | Código fuente: solicita un nombre al usuario y saluda. |
-| [`README.md`](README.md) | Este archivo. |
+
+**Estructura de directorios esperada:**
+
+```text
+hellouser/
+├── hello_user.bal    # Código fuente
+└── README.md         # Este archivo
+```
 
 ---
 
-## 🛠️ Enfoque / Approach
+## 🛠️ Enfoque y construcción / Approach & Build
 
 **ES:** Al igual que `hello_world`, Ballerina no requiere archivos de proyecto. Un único archivo `.bal` con `public function main()` es suficiente. Las novedades respecto a `hello_world` son:
 
@@ -33,7 +40,7 @@ Lee un nombre desde la entrada estándar y saluda al usuario.
 
 ---
 
-## 📄 Archivos clave / Key Files
+## 📄 Archivos de configuración clave / Key Configuration Files
 
 ### `hello_user.bal` — Código fuente
 
@@ -73,7 +80,7 @@ public function main() {
 
 ---
 
-## 🚀 Compilar y ejecutar / Build & Run
+## 🚀 Compilación y ejecución / Build & Run
 
 ### Requisito: Tener Ballerina instalado
 
@@ -105,37 +112,20 @@ Hello, Ada!
 
 ---
 
-## 📁 Estructura / Structure
-
-```text
-hellouser/
-├── hello_user.bal    # Código fuente
-└── README.md         # Este archivo
-```
-
-> **ES:** Al igual que `hello_world`, no se necesita `Ballerina.toml` ni otros archivos de configuración. Con `bal run` no se generan archivos intermedios.
-> **EN:** Like `hello_world`, no `Ballerina.toml` or other configuration files are needed. With `bal run` no intermediate files are generated.
-
 ---
 
-## 🔍 Novedades respecto a `hello_world`
-
-| Concepto | `hello_world` | `hello_user` |
-|----------|---------------|--------------|
-| `io:println` | ✅ Imprime un mensaje fijo | ✅ Imprime prompt y saludo |
-| `io:readln` | ❌ No | ✅ Lee entrada del usuario |
-| Variables | ❌ No | ✅ `string name` |
-| Concatenación `+` | ❌ No | ✅ `"Hello, " + name + "!"` |
-| Flujo del programa | Lineal (1 paso) | Lineal (3 pasos) |
-
----
-
-## 📝 Notas / Notes
+## 📝 Notas de implementación / Implementation Notes
 
 - **ES:** `io:readln()` devuelve un `string` que incluye todo lo que el usuario escribió hasta presionar Enter, **sin** el salto de línea final.
 - **EN:** `io:readln()` returns a `string` that includes everything the user typed up to pressing Enter, **without** the trailing newline.
 - **ES:** La variable `name` se declara con tipo explícito `string`. Ballerina tiene inferencia de tipos, pero aquí se usa declaración explícita por claridad educativa.
 - **EN:** The `name` variable is declared with explicit type `string`. Ballerina has type inference, but explicit declaration is used here for educational clarity.
+
+---
+
+### 🌐 Otras implementaciones / Other implementations
+
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 

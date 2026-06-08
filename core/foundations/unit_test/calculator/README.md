@@ -4,7 +4,7 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 
 ---
 
-## 📂 Archivos / Files
+## 📂 Archivos y estructura / Files & Structure
 
 ### Raíz del proyecto / Project root
 
@@ -21,9 +21,22 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 |---------|-----------|
 | `tests/lib_test.bal` | Pruebas unitarias — 5 casos con anotaciones `@test:Config` y aserciones `test:assertEquals`. |
 
+**Estructura de directorios esperada:**
+
+```text
+calculator/                       # Paquete Ballerina
+├── calculator.bal                # Módulo principal — operaciones aritméticas
+├── Ballerina.toml                # Manifiesto del paquete
+├── tests/
+│   └── lib_test.bal              # Pruebas unitarias (5 tests)
+├── .devcontainer.json            # Configuración del contenedor (opcional)
+├── target/                       # Compilados (generado por bal build/test)
+└── README.md                     # Este archivo
+```
+
 ---
 
-## 🏗️ Enfoque / Approach
+## 🛠️ Enfoque y construcción / Approach & Build
 
 **ES:** Ballerina incluye un **framework de pruebas integrado** en su herramienta `bal`:
 
@@ -55,7 +68,7 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 
 ---
 
-## 📄 Archivos clave / Key Files
+## 📄 Archivos de configuración clave / Key Configuration Files
 
 ### `calculator.bal` — Módulo principal
 
@@ -123,7 +136,7 @@ distribution = "2201.13.4"
 
 ---
 
-## 🚀 Compilar y ejecutar / Build & Run
+## 🚀 Compilación y ejecución / Build & Run
 
 ### Requisito: Tener Ballerina instalado
 
@@ -175,22 +188,7 @@ All tests are done!
 
 ---
 
-## 📁 Estructura / Structure
-
-```text
-calculator/                       # Paquete Ballerina
-├── calculator.bal                # Módulo principal — operaciones aritméticas
-├── Ballerina.toml                # Manifiesto del paquete
-├── tests/
-│   └── lib_test.bal              # Pruebas unitarias (5 tests)
-├── .devcontainer.json            # Configuración del contenedor (opcional)
-├── target/                       # Compilados (generado por bal build/test)
-└── README.md                     # Este archivo
-```
-
----
-
-## 🧪 Operaciones / Operations
+## 🧠 Algoritmos / operaciones (según el módulo)
 
 | Función / Function | Implementación / Implementation | Cumple / Complies |
 |-------------------|-------------------------------|-------------------|
@@ -202,20 +200,20 @@ calculator/                       # Paquete Ballerina
 
 ---
 
-### 🌐 Otras implementaciones / Other implementations
-
-Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
-
----
-
-## 📝 Notas / Notes
+## 📝 Notas de implementación / Implementation Notes
 
 - **ES:** Ballerina descubre automáticamente los archivos dentro del directorio `tests/`. No es necesario registrarlos manualmente en una suite ni crear un punto de entrada.
 - **EN:** Ballerina automatically discovers files inside the `tests/` directory. No manual registration in a suite or entry point is needed.
-- **ES:** Las funciones `multiplication` y `division` están implementadas con sumas/restas repetitivas para cumplir la especificación educativa (no usar operadores `*` ni `/` directos).
-- **EN:** The `multiplication` and `division` functions are implemented with repeated addition/subtraction to comply with the educational specification (no direct `*` or `/` operators).
+- **ES:** Las funciones `multiplication` y `division` están implementadas con sumas/restas repetitivas para cumplir la especificación educativa.
+- **EN:** The `multiplication` and `division` functions are implemented with repeated addition/subtraction to comply with the educational specification.
 - **ES:** Los hooks `@test:BeforeSuite` y `@test:AfterSuite` son opcionales; se usan aquí para mostrar el ciclo de vida de las pruebas.
 - **EN:** The `@test:BeforeSuite` and `@test:AfterSuite` hooks are optional; they are used here to illustrate the test lifecycle.
+
+---
+
+### 🌐 Otras implementaciones / Other implementations
+
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 

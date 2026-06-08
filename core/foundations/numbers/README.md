@@ -4,12 +4,9 @@ Implementación de la especificación [04_Numbers](https://yorche3.github.io/pro
 
 Tres enfoques de implementación para los mismos 5 algoritmos: **recursivo directo**, **recursivo con acumulador** e **iterativo**.
 
-> **ES:** Ballerina no tiene optimización de Tail Call (TCO), por lo que las funciones con acumulador (`Acc`) son puramente educativas.
-> **EN:** Ballerina does not have Tail Call Optimization (TCO), so accumulator-based functions (`Acc`) are purely educational.
-
 ---
 
-## 📂 Archivos / Files
+## 📂 Archivos y estructura / Files & Structure
 
 ### Raíz del proyecto / Project root
 
@@ -28,12 +25,25 @@ Tres enfoques de implementación para los mismos 5 algoritmos: **recursivo direc
 | `tests/numbers_recursive_test.bal` | 5 tests para el enfoque recursivo directo |
 | `tests/numbers_iterative_test.bal` | 5 tests para el enfoque iterativo |
 
-> **ES:** No hay tests separados para el enfoque con acumulador porque Ballerina no tiene TCO; su implementación es equivalente a la recursiva directa pero con acumulador.
-> **EN:** There are no separate tests for the accumulator approach because Ballerina lacks TCO; its implementation is equivalent to direct recursion but with an accumulator.
+
+**Estructura de directorios esperada:**
+
+```text
+numbers/                          # Paquete Ballerina
+├── numbers.bal                   # Módulo principal — 15 funciones
+├── Ballerina.toml                # Manifiesto del paquete
+├── tests/
+│   ├── numbers_recursive_test.bal    # Tests recursivos (5)
+│   └── numbers_iterative_test.bal    # Tests iterativos (5)
+├── .devcontainer.json            # Configuración del contenedor (opcional)
+├── .gitignore                    # Ignora target/
+├── target/                       # Compilados (generado por bal build/test)
+└── README.md                     # Este archivo
+```
 
 ---
 
-## 🏗️ Enfoque / Approach
+## 🛠️ Enfoque y construcción / Approach & Build
 
 **ES:** Sigue el mismo patrón que [`calculator`](../unit_test/calculator/): un único módulo principal (`numbers.bal`) con funciones `public` y tests en `tests/` descubiertos automáticamente por `bal test`.
 
@@ -57,7 +67,7 @@ The 15 functions are organized into 3 groups by approach:
 
 ---
 
-## 📄 Archivos clave / Key Files
+## 📄 Archivos de configuración clave / Key Configuration Files
 
 ### `numbers.bal` — Módulo principal
 
@@ -117,7 +127,7 @@ function testFibonacciRec(){
 
 ---
 
-## 🚀 Compilar y ejecutar / Build & Run
+## 🚀 Compilación y ejecución / Build & Run
 
 ### Requisito: Tener Ballerina instalado
 
@@ -168,24 +178,9 @@ All tests completed.
 
 ---
 
-## 📁 Estructura / Structure
-
-```text
-numbers/                          # Paquete Ballerina
-├── numbers.bal                   # Módulo principal — 15 funciones
-├── Ballerina.toml                # Manifiesto del paquete
-├── tests/
-│   ├── numbers_recursive_test.bal    # Tests recursivos (5)
-│   └── numbers_iterative_test.bal    # Tests iterativos (5)
-├── .devcontainer.json            # Configuración del contenedor (opcional)
-├── .gitignore                    # Ignora target/
-├── target/                       # Compilados (generado por bal build/test)
-└── README.md                     # Este archivo
-```
-
 ---
 
-## 🧪 Algoritmos / Algorithms
+## 🧠 Algoritmos / operaciones (según el módulo)
 
 ### 3 enfoques × 5 algoritmos = 15 funciones / 10 tests
 
@@ -199,18 +194,36 @@ numbers/                          # Paquete Ballerina
 
 ---
 
-### 🌐 Otras implementaciones / Other implementations
+## 📝 Notas de implementación / Implementation Notes
 
-Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
+### 🔁 Sobre recursión con acumulador y Tail Call Optimization (TCO) / On recursion with accumulator and Tail Call Optimization (TCO)
+
+**ES:**
+
+Tail recursion ocurre cuando la llamada recursiva es la última acción que ejecuta una función/método; después de la llamada no hay más instrucciones, la función devuelve el resultado de la llamada recursiva. La recursión con acumulador consigue esto pasando el estado previo como parámetro a cada llamada, sin dejar trabajo pendiente en la pila.
+
+**Ballerina no garantiza TCO.** La máquina virtual de Ballerina (basada en JVM) no optimiza llamadas terminales, por lo que las funciones con acumulador (`...Acc`) son equivalentes a las recursivas directas en consumo de pila.
+
+La implementación con acumulador se conserva únicamente con fines educativos: sirve como puente conceptual entre la recursión directa (más cercana a la definición matemática) y la versión iterativa (más eficiente). Como en este contexto no hay un beneficio práctico de rendimiento, no se desarrollan pruebas unitarias específicas para los métodos con acumulador. La validación del comportamiento se cubre a través de las pruebas de los enfoques recursivo e iterativo, que juntos ejercitan los mismos resultados.
+
+**EN:**
+
+Tail recursion occurs when the recursive call is the last action that runs a function/method; after the call there are no more instructions, the function returns the result of the recursive call. Recursion with accumulator achieves this by passing the previous state as a parameter to each call, without leaving any pending work on the stack.
+
+**Ballerina does not guarantee TCO.** The Ballerina virtual machine (JVM-based) does not optimize tail calls, so accumulator-based functions (`...Acc`) are equivalent to direct recursion in stack usage.
+
+The accumulator implementation is preserved only for educational purposes: it serves as a conceptual bridge between the direct recursive (closer to mathematical definition) and the iterative version (more efficient). Since there is no practical performance benefit, no specific unit tests are developed for the recursive methods with accumulator. The behavior validation is covered through the tests of recursive and iterative approaches, which together exercise the same results.
 
 ---
 
-## 📝 Notas / Notes
-
-- **ES:** Ballerina no tiene TCO (Tail Call Optimization), por lo que las funciones con acumulador (`...Acc`) son equivalentes a las recursivas directas en consumo de pila. Se incluyen por coherencia educativa con las implementaciones en otros lenguajes del repositorio.
-- **EN:** Ballerina lacks TCO (Tail Call Optimization), so accumulator-based functions (`...Acc`) are equivalent to direct recursion in stack usage. They are included for educational consistency with implementations in other languages in the repository.
 - **ES:** Los parámetros de función en Ballerina son inmutables por defecto. La función `greatestCommonDivisorIte` usa variables locales (`x`, `y`) en lugar de reasignar los parámetros `a`, `b`.
 - **EN:** Function parameters in Ballerina are immutable by default. The `greatestCommonDivisorIte` function uses local variables (`x`, `y`) instead of reassigning parameters `a`, `b`.
+
+---
+
+### 🌐 Otras implementaciones / Other implementations
+
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 
