@@ -4,16 +4,24 @@ Implementación de la especificación [01_Hello_World](https://yorche3.github.io
 
 ---
 
-## 📂 Archivos / Files
+## 📂 Archivos y estructura / Files & Structure
 
 | Archivo | Propósito |
 |---------|-----------|
 | [`hello_world.bal`](hello_world.bal) | Código fuente: imprime `"Hello, World!"` en la consola. |
-| [`README.md`](README.md) | Este archivo. |
+
+**Estructura de directorios esperada:**
+
+```text
+helloworld/
+├── hello_world.bal    # Código fuente
+├── hello_world.jar    # JAR ejecutable (generado con bal build)
+└── README.md          # Este archivo
+```
 
 ---
 
-## 🛠️ Enfoque / Approach
+## 🛠️ Enfoque y construcción / Approach & Build
 
 **ES:** Ballerina no requiere archivos de proyecto para ejecutar un programa simple. Un único archivo `.bal` con una función `main()` pública es suficiente: el compilador/ejecutor `bal` lo reconoce automáticamente como punto de entrada.
 
@@ -31,7 +39,7 @@ The program:
 
 ---
 
-## 📄 Archivos clave / Key Files
+## 📄 Archivos de configuración clave / Key Configuration Files
 
 ### `hello_world.bal`
 
@@ -50,12 +58,12 @@ public function main() {
 | Elemento | Propósito |
 |----------|-----------|
 | `import ballerina/io;` | Importa el módulo estándar de E/S |
-| `public function main()` | Punto de entrada del programa (como `main` en C, `_start` en Assembly) |
+| `public function main()` | Punto de entrada del programa |
 | `io:println(...)` | Imprime una línea con salto de línea al final |
 
 ---
 
-## 🚀 Compilar y ejecutar / Build & Run
+## 🚀 Compilación y ejecución / Build & Run
 
 ### Requisito: Tener Ballerina instalado
 
@@ -89,39 +97,20 @@ Hello, World!
 
 ---
 
-## 📁 Estructura / Structure
-
-```text
-helloworld/
-├── hello_world.bal    # Código fuente
-├── hello_world.jar    # JAR ejecutable (generado con bal build)
-└── README.md          # Este archivo
-```
-
-> **ES:** `hello_world.jar` solo se genera si se ejecuta `bal build`. Con `bal run` no se crean archivos adicionales.
-> **EN:** `hello_world.jar` is only generated if `bal build` is run. With `bal run` no additional files are created.
-
 ---
 
-## 🔍 Comparativa con otros lenguajes
-
-| Aspecto | Ada | Assembly | Ballerina |
-|---------|-----|----------|-----------|
-| Archivo de proyecto | `hello_world.gpr` + `alire.toml` | `Makefile` (Linux) + `build.ps1` (Windows) | Ninguno (opcional `Ballerina.toml`) |
-| Punto de entrada | `procedure Hello_World is` | `_start` | `public function main()` |
-| Compilación | `gprbuild -P hello_world.gpr` | `nasm -f elf64` + `ld` | `bal run` (compila y ejecuta) |
-| E/S | `Put_Line` (librería Ada) | `syscall` (kernel) | `io:println` (librería Ballerina) |
-| Binario | ~200 KB (+ librerías) | ~1 KB (estático) | JAR ~10 MB (requiere JVM) |
-| Dependencias externas | Alire, GNAT, gprbuild | NASM, ld | Ballerina (incluye JVM) |
-
----
-
-## 📝 Notas / Notes
+## 📝 Notas de implementación / Implementation Notes
 
 - **ES:** Ballerina ejecuta sobre la JVM (Java Virtual Machine). El comando `bal run` compila el código fuente a bytecode Java y lo ejecuta en un solo paso.
 - **EN:** Ballerina runs on the JVM (Java Virtual Machine). The `bal run` command compiles the source code to Java bytecode and executes it in a single step.
-- **ES:** A diferencia de Ada (que requiere `gprbuild` y `alire.toml`) o Assembly (que requiere `nasm` y `ld`), Ballerina puede ejecutar un archivo `.bal` suelto sin configuración adicional.
-- **EN:** Unlike Ada (which requires `gprbuild` and `alire.toml`) or Assembly (which requires `nasm` and `ld`), Ballerina can run a standalone `.bal` file without additional configuration.
+- **ES:** Ballerina puede ejecutar un archivo `.bal` suelto sin configuración adicional. No necesita archivos de proyecto ni manifiestos.
+- **EN:** Ballerina can run a standalone `.bal` file without additional configuration. No project files or manifests are needed.
+
+---
+
+### 🌐 Otras implementaciones / Other implementations
+
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 

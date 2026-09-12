@@ -4,7 +4,7 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 
 ---
 
-## 📂 Archivos / Files
+## 📂 Archivos y estructura / Files & Structure
 
 ### Raíz del proyecto / Project root
 
@@ -21,18 +21,31 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 |---------|-----------|
 | `tests/lib_test.bal` | Pruebas unitarias — 5 casos con anotaciones `@test:Config` y aserciones `test:assertEquals`. |
 
+**Estructura de directorios esperada:**
+
+```text
+calculator/                       # Paquete Ballerina
+├── calculator.bal                # Módulo principal — operaciones aritméticas
+├── Ballerina.toml                # Manifiesto del paquete
+├── tests/
+│   └── lib_test.bal              # Pruebas unitarias (5 tests)
+├── .devcontainer.json            # Configuración del contenedor (opcional)
+├── target/                       # Compilados (generado por bal build/test)
+└── README.md                     # Este archivo
+```
+
 ---
 
-## 🏗️ Enfoque / Approach
+## 🛠️ Enfoque y construcción / Approach & Build
 
-**ES:** A diferencia de Ada (que usa AUnit con suites, test cases y test runner explícitos), Ballerina incluye un **framework de pruebas integrado** en su herramienta `bal`:
+**ES:** Ballerina incluye un **framework de pruebas integrado** en su herramienta `bal`:
 
 1. Las funciones de prueba se marcan con la anotación `@test:Config {}`.
 2. El comando `bal test` descubre automáticamente todas las funciones anotadas en el directorio `tests/`.
 3. Las aserciones usan `test:assertEquals(actual, esperado, mensaje)`.
 4. Soporta hooks de ciclo de vida: `@test:BeforeSuite`, `@test:AfterSuite`.
 
-**EN:** Unlike Ada (which uses AUnit with suites, test cases and explicit test runners), Ballerina includes a **built-in test framework** in its `bal` tool:
+**EN:** Ballerina includes a **built-in test framework** in its `bal` tool:
 
 1. Test functions are marked with the `@test:Config {}` annotation.
 2. The `bal test` command automatically discovers all annotated functions in the `tests/` directory.
@@ -55,7 +68,7 @@ Implementación de la especificación [03_Unit_Test_Calculator](https://yorche3.
 
 ---
 
-## 📄 Archivos clave / Key Files
+## 📄 Archivos de configuración clave / Key Configuration Files
 
 ### `calculator.bal` — Módulo principal
 
@@ -123,7 +136,7 @@ distribution = "2201.13.4"
 
 ---
 
-## 🚀 Compilar y ejecutar / Build & Run
+## 🚀 Compilación y ejecución / Build & Run
 
 ### Requisito: Tener Ballerina instalado
 
@@ -175,22 +188,7 @@ All tests are done!
 
 ---
 
-## 📁 Estructura / Structure
-
-```text
-calculator/                       # Paquete Ballerina
-├── calculator.bal                # Módulo principal — operaciones aritméticas
-├── Ballerina.toml                # Manifiesto del paquete
-├── tests/
-│   └── lib_test.bal              # Pruebas unitarias (5 tests)
-├── .devcontainer.json            # Configuración del contenedor (opcional)
-├── target/                       # Compilados (generado por bal build/test)
-└── README.md                     # Este archivo
-```
-
----
-
-## 🧪 Operaciones / Operations
+## 🧠 Algoritmos / operaciones (según el módulo)
 
 | Función / Function | Implementación / Implementation | Cumple / Complies |
 |-------------------|-------------------------------|-------------------|
@@ -202,29 +200,20 @@ calculator/                       # Paquete Ballerina
 
 ---
 
-## 🔍 Comparativa con Ada
-
-| Aspecto | Ada | Ballerina |
-|---------|-----|-----------|
-| Framework de pruebas | AUnit (externo) | `ballerina/test` (integrado) |
-| Anotaciones | No (registro manual en suite) | `@test:Config`, `@test:BeforeSuite` |
-| Descubrimiento de tests | Manual (registrar en `*_Suite.adb`) | Automático (`bal test` escanea `tests/`) |
-| Archivos necesarios | 7 archivos de prueba + suite + runner | 1 archivo (`lib_test.bal`) |
-| Punto de entrada | `tests.adb` con `AUnit.Run.Test_Runner` | Ninguno (`bal test` lo gestiona) |
-| Aserciones | `Assert.Assert(Condition, Message)` | `test:assertEquals(actual, expected, msg)` |
-| Dependencias | AUnit (librería externa) | Ninguna (viene con Ballerina) |
-| Compilación | `alr -C tests run` | `bal test` |
-
----
-
-## 📝 Notas / Notes
+## 📝 Notas de implementación / Implementation Notes
 
 - **ES:** Ballerina descubre automáticamente los archivos dentro del directorio `tests/`. No es necesario registrarlos manualmente en una suite ni crear un punto de entrada.
 - **EN:** Ballerina automatically discovers files inside the `tests/` directory. No manual registration in a suite or entry point is needed.
-- **ES:** Las funciones `multiplication` y `division` están implementadas con sumas/restas repetitivas para cumplir la especificación educativa (no usar operadores `*` ni `/` directos).
-- **EN:** The `multiplication` and `division` functions are implemented with repeated addition/subtraction to comply with the educational specification (no direct `*` or `/` operators).
+- **ES:** Las funciones `multiplication` y `division` están implementadas con sumas/restas repetitivas para cumplir la especificación educativa.
+- **EN:** The `multiplication` and `division` functions are implemented with repeated addition/subtraction to comply with the educational specification.
 - **ES:** Los hooks `@test:BeforeSuite` y `@test:AfterSuite` son opcionales; se usan aquí para mostrar el ciclo de vida de las pruebas.
 - **EN:** The `@test:BeforeSuite` and `@test:AfterSuite` hooks are optional; they are used here to illustrate the test lifecycle.
+
+---
+
+### 🌐 Otras implementaciones / Other implementations
+
+Este proyecto también está implementado en otros lenguajes. Explora el [repositorio principal](https://github.com/yorche3/programming_languages) para ver todas las versiones.
 
 ---
 

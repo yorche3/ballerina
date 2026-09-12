@@ -28,7 +28,7 @@ public function subtraction(int a, int b) returns int {
 public function multiplication(int a, int b) returns int {
     int product = 0;
     foreach var i in 0..<b {
-        product += a;
+        product = addition(product, a);
     }
     return product;
 }
