@@ -41,6 +41,12 @@ public class LinkedList {
         return self.count == 0;
     }
 
+    # Obtiene el número de elementos en la lista.
+    # + return - el número de elementos en la lista.
+    public function size() returns int {
+        return self.count;
+    }
+
     # Obtiene el valor del nodo cabeza de la lista.
     # + return - el valor del nodo cabeza, o FAILURE_VALUE si la lista está vacía.
     public function getHead() returns int {
