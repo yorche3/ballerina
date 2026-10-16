@@ -1,9 +1,9 @@
 # Returns the sum of two integers.
 # Parameters:
 # 
-# + a - parameter description  
-# + b - parameter description
-# + return - return value description
+# + a - first addend
+# + b - second addend
+# + return - the sum of a and b
 public function addition(int a, int b) returns int {
     return a + b;
 }
@@ -11,9 +11,9 @@ public function addition(int a, int b) returns int {
 # Return the difference between two integers.
 # Parameters:
 # 
-# + a - parameter description  
-# + b - parameter description
-# + return - return value description
+# + a - minuend
+# + b - subtrahend
+# + return - the difference a - b
 public function subtraction(int a, int b) returns int {
     return a - b;
 }
@@ -22,9 +22,9 @@ public function subtraction(int a, int b) returns int {
 # Product is the result of add a to itself b times.
 # Parameters:
 # 
-# + a - parameter description  
-# + b - parameter description
-# + return - return value description
+# + a - multiplicand
+# + b - multiplier, how many times a is added
+# + return - the product, built as repeated addition
 public function multiplication(int a, int b) returns int {
     int product = 0;
     foreach var i in 0..<b {
@@ -37,9 +37,9 @@ public function multiplication(int a, int b) returns int {
 # Quotient is the result of how many times b can be subtracted from a.
 # Parameters:
 #
-# + a - parameter description  
-# + b - parameter description
-# + return - return value description
+# + a - dividend
+# + b - divisor
+# + return - the quotient, counted as repeated subtraction
 public function division(int a, int b) returns int {
     int quotient = 0;
     int remainder = a;
@@ -54,9 +54,9 @@ public function division(int a, int b) returns int {
 # Remainder is what is left after subtracting b from a.
 # Parameters:
 # 
-# + a - parameter description 
-# + b - parameter description
-# + return - return value description
+# + a - dividend
+# + b - divisor
+# + return - the remainder a - (quotient * b)
 public function modulus(int a, int b) returns int {
     int quotient = division(a, b);
     return subtraction(a, multiplication(b, quotient));
