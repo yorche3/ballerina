@@ -144,6 +144,11 @@ public class Graph {
     }
 
     public function addVertex(int label) {
+        // El registro es idempotente: si la etiqueta ya existe no se duplica el
+        // nodo ni se altera su adyacencia, y el contador no cambia.
+        if self.findVertex(label) != () {
+            return;
+        }
         GraphNode newVertex = new(label);
         newVertex.setNextVertex(self.vertices);
         self.vertices = newVertex;
@@ -153,17 +158,21 @@ public class Graph {
     public function addEdge(int u, int v) returns boolean {
         GraphNode? reference = self.findVertex(u);
         GraphNode? target = self.findVertex(v);
+        // Ambos extremos deben existir; se consulta sin crear nada.
         if reference == () || target == () {
             return false;
         }
+        // La lista de vecinos se mantiene ordenada de forma ascendente, así que
+        // se avanza hasta la primera etiqueta mayor o igual que v.
         NeighborNode? previous = ();
         NeighborNode? current = reference.getNeighbours();
-        while current != () {
-            if current.label == v {
-                return false;
-            }
+        while current != () && current.label < v {
             previous = current;
             current = current.next;
+        }
+        // Arista repetida: es idempotente, cuenta como éxito y no se duplica.
+        if current != () && current.label == v {
+            return true;
         }
         NeighborNode newNeighbor = {label: v, next: current};
         if previous == () {
