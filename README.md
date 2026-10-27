@@ -11,7 +11,7 @@ Usa el framework de pruebas integrado `ballerina/test` con anotaciones (`@test:C
 | Módulo | Descripción |
 |--------|-------------|
 | [`core/foundations/`](core/foundations/) | **Fase 0 — Fundamentos**: `hello_world`, `hello_user`, `calculator`, `numbers` |
-| [`core/algorithms/`](core/algorithms/) | **Fase 1 — Algoritmos Puros**: `naive_sort`, `data_structures_basics` |
+| [`core/algorithms/`](core/algorithms/) | **Fase 1 — Algoritmos Puros**: `naive_sort`, `data_structures_basics`, `data_structures_advanced` |
 
 ---
 
@@ -35,6 +35,9 @@ cd core/algorithms/naive_sort && bal test
 
 # Data Structures Basics Tests
 cd core/algorithms/data_structures_basics && bal test
+
+# Data Structures Advanced Tests
+cd core/algorithms/data_structures_advanced && bal test
 ```
 
 ---
