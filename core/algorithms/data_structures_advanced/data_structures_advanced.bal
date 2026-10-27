@@ -35,8 +35,7 @@ public class BinaryTree {
     public function init() {
     }
 
-    public function insert(int value) returns boolean {
-        return false;
+    public function insert(int value) {
     }
 
     public function contains(int value) returns boolean {
@@ -74,8 +73,7 @@ public class Graph {
     public function init() {
     }
 
-    public function addVertex(int label) returns boolean {
-        return false;
+    public function addVertex(int label) {
     }
 
     public function addEdge(int u, int v) returns boolean {
